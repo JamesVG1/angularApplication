@@ -1,0 +1,57 @@
+<form>
+    <legend>Search</legend>
+  <div class="form-group">
+    <div class="input-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="input-group-addon"><i class="fa fa-search"></i></div>
+      <input type="text" class="form-control" placeholder="Search the Store" ng-model="searchFood">
+    </div>
+  </div>
+</form>
+
+<legend style="padding-top:30px;">Store Inventory</legend>
+        <div id="tableHead" style="overflow: auto;">
+
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th ng-repeat="key in keys">
+
+                        {{key.second}}
+
+                        <span ng-hide="key.asc">
+                            <button class="arrowButton" ng-click="sortByHeader(key.first)">
+                                <svg fill="#f44336" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                </svg>
+                            </button>
+                        </span>
+                        <span ng-hide="!key.asc">
+                            <button class="arrowButton" ng-click="sortByHeader('key.first')">
+                                <svg fill="#f44336" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                    <path d="M0-.75h24v24H0z" fill="none"/>
+                                </svg>
+                            </button>
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            </table>
+
+        </div>
+
+            <div id="tableBody" style="overflow: auto;">
+                <table class="table">
+                    <tbody>
+                        <tr ng-repeat="food in sortableTable.foodArray | orderBy:predicate | filter:searchFood | filter:uppercase" ng-class="{out: food.stock === 0}">
+                            <td>{{food.name | uppercase}}</td>
+                            <td>{{food.type | uppercase}}</td>
+                            <td>{{food.price}}</td>
+                            <td>{{food.unit | uppercase}}</td>
+                            <td >{{food.stock}}</td>
+                            <td >{{food.need}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
