@@ -34,6 +34,7 @@
             {first: "unit", second: "Unit"},
             {first: "stock", second: "In Stock"},
             {first: "need", second: "Amount to Purchase"}
+
         ];
         // /end
 
