@@ -26,12 +26,12 @@
 
         // /start
         $scope.keys = [
-            {first: "name", second: "Name"},
-            {first: "type", second: "Food Group"},
-            {first: "price", second: "Price Per Unit"},
-            {first: "unit", second: "Unit"},
-            {first: "stock", second: "In Stock"},
-            {first: "need", second: "Amount to Purchase"}
+            {first: "name", second: "Name", asc: true},
+            {first: "type", second: "Food Group", asc: true},
+            {first: "price", second: "Price Per Unit", asc: true},
+            {first: "unit", second: "Unit", asc: true},
+            {first: "stock", second: "In Stock", asc: true},
+            {first: "need", second: "Amount to Purchase", asc: true}
         ];
         // /end
 
