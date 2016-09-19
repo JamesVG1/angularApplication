@@ -9,9 +9,9 @@
 </form>
 
 <legend style="padding-top:30px;">Store Inventory</legend>
+<!-- Table Header -->
         <div id="tableHead" style="overflow: auto;">
-
-            <table class="table" >
+            <table class="table">
                 <thead>
                 <tr>
                     <th ng-repeat="key in keys">
@@ -26,6 +26,7 @@
                                 </svg>
                             </button>
                         </span>
+
                         <span ng-hide="!key.asc">
                             <button class="arrowButton" ng-click="sortByHeader('key.first')">
                                 <svg fill="#f44336" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -34,13 +35,14 @@
                                 </svg>
                             </button>
                         </span>
+
                     </th>
                 </tr>
             </thead>
             </table>
-
         </div>
 
+        <!-- Table Body -->
             <div id="tableBody" style="overflow: auto;">
                 <table class="table">
                     <tbody>
