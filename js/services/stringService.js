@@ -3,7 +3,7 @@
         .module('sortable-table')
         .service('StringService', StringService);
 
-        // inject other services or stuff here if you need it
+        // inject other services
         function StringService() {
 
             // constants
