@@ -17,8 +17,6 @@
             getFoodArray();
         }
 
-        $scope.foodGroups = ["fruit", "vegetable", "meat", "dairy", "grain", "caffeine"];
-
         $scope.name = {asc: true};
         $scope.type = {asc: true};
         $scope.price = {asc: true};
@@ -34,7 +32,6 @@
             {first: "unit", second: "Unit"},
             {first: "stock", second: "In Stock"},
             {first: "need", second: "Amount to Purchase"}
-
         ];
         // /end
 
