@@ -1,5 +1,4 @@
 //<reference path index.html />
-
 (function() {
     'use strict';
 
@@ -11,21 +10,20 @@
     function SortableTableController($scope, StringService) {
         var sortableTable = this;
 
+        // variables
+        $scope.reverse = false;
+
+        // Functions available to HTML
+        sortableTable.sortByHeader = sortByHeader;
+
         activate();
 
         function activate(){
             getFoodArray();
         }
 
-        $scope.name = {asc: true};
-        $scope.type = {asc: true};
-        $scope.price = {asc: true};
-        $scope.unit = {asc: true};
-        $scope.stock = {asc: true};
-        $scope.need = {asc: true};
-
         // /start
-        $scope.keys = [
+        sortableTable.keys = [
             {first: "name", second: "Name", asc: true},
             {first: "type", second: "Food Group", asc: true},
             {first: "price", second: "Price Per Unit", asc: true},
@@ -41,33 +39,16 @@
             sortableTable.foodArray = StringService.getFoodArray();
         }
 
-        $scope.order = function(predicate) {
+        function order(predicate) {
             $scope.predicate = predicate;
-        };
+            $scope.reverse = !$scope.reverse; // toggles the order in which orderBy
+        }
 
-        $scope.sortByHeader = function(headerName) {
-            switch (headerName) {
-                case "name":
-                    $scope.name.asc = !$scope.name.asc;
-                    break;
-                case "type":
-                    $scope.type.asc = !$scope.type.asc;
-                    break;
-                case "price":
-                    $scope.price.asc = !$scope.price.asc;
-                    break;
-                case "unit":
-                    $scope.unit.asc = !$scope.unit.asc;
-                    break;
-                case "stock":
-                    $scope.stock.asc = !$scope.stock.asc;
-                    break;
-                case "need":
-                    $scope.need.asc = !$scope.need.asc;
-                    break;
-            }
-            $scope.order(headerName);
-        };
+        function sortByHeader(key) { // key = {first: "name", second: "Name", asc: true}
+            console.log("here");
+            key.asc = !key.asc; // toggle arrow
+            order(key.first);
+        }
     }
 
     function configRouting($stateProvider) {
